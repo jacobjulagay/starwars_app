@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Star Wars App</title>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    </head>
+
+    <body>
+        <div id="starwars" v-cloak>
+            <div class="jumbotron jumbotron-fluid">
+
+                <!-- Application Title and tagline-->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg">
+                            <h1 class="display-2">Star Wars App</h1>
+                            <p class="lead">Search for your favorite Star Wars Characters!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+        
+            <div v-cloak class="container"> 
+                <div class="row">
+                    <div class="col-lg">
+
+                        <!-- Search input text -->
+                        <div class = "col-lg">
+                            <p>Able to search for characters in the Star Wars universe.</p>
+                            <p>Search character:</p>
+                            <input v-model="characterNameInput"><br>
+                           
+                        </div>
+                        <br>
+                        <!-- Search Button-->
+                        <div class = "col-lg">
+                            <button @click="search" class="btn btn-dark">
+                                Search
+                            </button>
+                        </div>
+                        <br>
+                      
+                        <!-- Showing Results for search -->
+                        <div class="row" v-for="character in people">
+                            <div class="col-lg">
+                               <ul> 
+                                   <!-- Display character name -->
+                                   <!-- <button @click="fetch" class="btn btn-dark">Fetch</button> -->
+                                   
+                                 <li> {{character.name}} | Gender: {{character.gender}} | Height (cm.): {{character.height}}                   </li>
+                               </ul>
+                
+                               <p></p>
+                            </div>
+                        </div>
+
+                      
+                    
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/vue@2.6.11/dist/vue.js"></script> 
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="app.js" type="text/javascript"></script>
+
+    </body>
+</html>
